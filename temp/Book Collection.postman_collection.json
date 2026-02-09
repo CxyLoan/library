@@ -1,0 +1,215 @@
+{
+  "info": {
+    "_postman_id": "d811c4a7-ba74-4382-909c-0ce458ff0f60",
+    "name": "Book Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51520291",
+    "_collection_link": "https://go.postman.co/collection/51520291-d811c4a7-ba74-4382-909c-0ce458ff0f60?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Получить все книги",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/books/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "books",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Получить все книги c фильтрацией",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/books/?year=1866&yearSort=desc&available=true&availableSort=desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "books",
+            ""
+          ],
+          "query": [
+            {
+              "key": "year",
+              "value": "1866"
+            },
+            {
+              "key": "yearSort",
+              "value": "desc"
+            },
+            {
+              "key": "available",
+              "value": "true"
+            },
+            {
+              "key": "availableSort",
+              "value": "desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Получить книгу по id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/books/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "books",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Создать книгу",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"bookName\": \"bookName\",\n    \"author\": \"Достоевский\",\n    \"isbn\": \"1234567890112\",\n    \"publicationYear\": \"2019\",\n    \"totalCopies\": 10,\n    \"availableCopies\": 10\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/books/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "books",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Обновить книгу",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"bookName\": \"bookName\",\n    \"author\": \"Достоевский\",\n    \"isbn\": \"1234567891112\",\n    \"publicationYear\": \"2019\",\n    \"totalCopies\": 10,\n    \"availableCopies\": 7\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/books/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "books",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Удалить книгу",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/books/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "books",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Поиск книг",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/books/search?bookName=Преступление и наказание&author=Достоевский&isbn=1234567890",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "books",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "bookName",
+              "value": "Преступление и наказание"
+            },
+            {
+              "key": "author",
+              "value": "Достоевский"
+            },
+            {
+              "key": "isbn",
+              "value": "1234567890"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

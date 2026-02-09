@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: library
+
+logging:
+  config: classpath:logs/logback-${spring.profiles.active}.xml

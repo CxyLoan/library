@@ -1,0 +1,110 @@
+{
+  "info": {
+    "_postman_id": "81772a5b-5d05-43a6-9d81-d5f6c1df2a1d",
+    "name": "Loan Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51520291",
+    "_collection_link": "https://go.postman.co/collection/51520291-81772a5b-5d05-43a6-9d81-d5f6c1df2a1d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Список книг по id читателя",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/loans/reader/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "loans",
+            "reader",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Список просроченных книг",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/loans/overdue",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "loans",
+            "overdue"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Вернуть книгу по id займа",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/loans/5/return",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "loans",
+            "5",
+            "return"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Выдать книгу",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"bookId\": 3,\n    \"readerId\": 1,\n    \"returnDate\": \"2026-02-10\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/loans/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "loans",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
