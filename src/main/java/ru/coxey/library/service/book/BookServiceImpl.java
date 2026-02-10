@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.coxey.library.dto.BookDto;
 import ru.coxey.library.entity.Book;
 import ru.coxey.library.exceptions.BookNotFoundException;
@@ -42,7 +41,6 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    @Transactional
     public BookDto createBook(BookDto bookDto) {
         isUniqueIsbn(bookDto.getIsbn());
         return mapper.modelToDto(repository.save(
@@ -50,7 +48,6 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    @Transactional
     public BookDto updateBook(Long id, BookDto bookDto) {
         isUniqueIsbn(bookDto.getIsbn());
         final var bookFromDb = findBookById(id);
@@ -61,7 +58,6 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    @Transactional
     public void deleteBook(Long id) {
         if (repository.findById(id).isPresent()) {
             repository.deleteById(id);

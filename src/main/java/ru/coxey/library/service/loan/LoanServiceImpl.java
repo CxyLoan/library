@@ -2,7 +2,6 @@ package ru.coxey.library.service.loan;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.coxey.library.audit.AuditService;
 import ru.coxey.library.dto.BookLoanDto;
 import ru.coxey.library.dto.BookLoanRequest;
@@ -34,7 +33,6 @@ public class LoanServiceImpl implements LoanService {
     private final AuditService auditService;
 
     @Override
-    @Transactional
     public BookLoanDto getBookForReader(BookLoanRequest request) {
         validateReturnDate(request.getReturnDate());
         final var book = getBookById(request.getBookId());
@@ -52,13 +50,11 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
-    @Transactional
     public List<BookLoanDto> getOverdueBooks() {
         return bookLoanMapper.toBookLoanDtoList(getOverdueBooks(loanRepository.findAll()));
     }
 
     @Override
-    @Transactional
     public void returnBook(Long id) {
         final var loan = getLoanById(id);
         validateLoanStatus(loan);

@@ -2,7 +2,6 @@ package ru.coxey.library.service.reader;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.coxey.library.audit.AuditService;
 import ru.coxey.library.dto.ReaderDto;
 import ru.coxey.library.entity.Reader;
@@ -37,7 +36,6 @@ public class ReaderServiceImpl implements ReaderService {
     }
 
     @Override
-    @Transactional
     public ReaderDto createReader(ReaderDto readerDto) {
         isUniqueEmailAndPhoneNumber(readerDto);
         final var reader = mapper.dtoToModel(readerDto);
@@ -48,7 +46,6 @@ public class ReaderServiceImpl implements ReaderService {
     }
 
     @Override
-    @Transactional
     public ReaderDto updateReader(Long id, ReaderDto readerDto) {
         isUniqueEmailAndPhoneNumber(id ,readerDto);
         final var reader = findReaderById(id);
@@ -58,7 +55,6 @@ public class ReaderServiceImpl implements ReaderService {
     }
 
     @Override
-    @Transactional
     public void deleteReader(Long id) {
         if (repository.findById(id).isPresent()) {
             repository.deleteById(id);
